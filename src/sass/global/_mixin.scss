@@ -1,0 +1,9 @@
+@use "./variables" as variables;
+
+// Mixin
+// Media Queries
+@mixin mq($bp) {
+  @media #{map-get(variables.$breakpoints, $bp)} {
+    @content;
+  }
+}
