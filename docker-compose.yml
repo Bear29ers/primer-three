@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  primer-three:
+    container_name: primer-three
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./:/app
+    tty: true
+    ports:
+      # port that can be checked in the browser while using HMR when running npm run dev
+      - '3000:3000'
+      # port that can be checked in the browser while using HMR when running npm run previe'w
+      - '4173:4173'
