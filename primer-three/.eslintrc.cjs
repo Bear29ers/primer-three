@@ -91,6 +91,8 @@ const config = {
         },
       },
     ],
+    /* unused-imports */
+    'unused-imports/no-unused-imports': 'warn',
   },
 };
 module.exports = config;
