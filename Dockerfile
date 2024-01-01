@@ -1,5 +1,5 @@
 FROM node:lts-buster-slim
 
-WORKDIR /app
+WORKDIR /app/primer-three
 
 CMD ["node"]
