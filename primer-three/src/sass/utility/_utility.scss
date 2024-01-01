@@ -1,0 +1,33 @@
+@use '../global/' as global;
+
+// Universal
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: global.$lato;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+small {
+  margin: 0;
+  color: map-get(global.$colors, main-text);
+}
