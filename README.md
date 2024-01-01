@@ -22,6 +22,7 @@ Three.js は 3 次元空間の表現を得意とする JavaScript ライブラ�
   - 物体（メッシュ）を配置するためのステージ（シーン）
 - カメラ（PerspectiveCamera）
   - カメラ越しに物体を見るイメージになるので、シーンに対してカメラを設置
+  - `PerspectiveCamera(視野角, アスペクト比, 開始距離, 終了距離)`
 - レンダラー（WebGLRenderer）
   - カメラで撮ったシーンを画面に移すための変換器。変換したものをブラウザ（Canvas）に映し出す。
   - Three.jsで一般的に使われるのが、「WebGLRenderer」
