@@ -6,7 +6,6 @@
   padding: 0;
   margin: 0;
   text-decoration: none;
-  list-style: none;
 }
 
 html {
@@ -30,4 +29,15 @@ a,
 small {
   margin: 0;
   color: map-get(global.$colors, main-text);
+}
+
+.list {
+  list-style: inside;
+  padding: 5rem;
+  li {
+    display: list-item;
+    a {
+      font-size: 1.8rem;
+    }
+  }
 }
