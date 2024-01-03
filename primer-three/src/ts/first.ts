@@ -28,5 +28,10 @@ const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
 directionalLight.position.set(1, 1, 1);
 scene.add(directionalLight);
 
+// ポイント光源を追加
+const pointLight = new THREE.PointLight(0xffffff, 1);
+pointLight.position.set(-200, -200, -200);
+scene.add(pointLight);
+
 // レンダリング
 renderer.render(scene, camera);
