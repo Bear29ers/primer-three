@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
@@ -57,11 +58,21 @@ const init = () => {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
   controls = new OrbitControls(camera, renderer.domElement);
 
-  // eslint-disable-next-line no-use-before-define
+  // ウィンドウのリサイズで実行
+  window.addEventListener('resize', onWindowResize);
+
   animate();
 };
 
-// ポイント光源を巡回
+// ブラウザのリサイズに対応させる
+const onWindowResize = () => {
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  camera.aspect = window.innerWidth / window.innerHeight;
+  // カメラの変更を有効にする
+  camera.updateProjectionMatrix();
+};
+
+// ポイント光源を巡回させる
 const animate = () => {
   pointLight.position.set(
     200 * Math.sin(Date.now() / 500),
@@ -71,7 +82,7 @@ const animate = () => {
 
   requestAnimationFrame(animate);
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
   controls.update();
 
   // レンダリング
