@@ -12,6 +12,7 @@ camera.position.set(0, 0, 500);
 // レンダラーを追加
 const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(window.devicePixelRatio);
 document.body.appendChild(renderer.domElement);
 
 // テクスチャを追加
