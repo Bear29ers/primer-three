@@ -16,6 +16,11 @@ document.body.appendChild(renderer.domElement);
 const ballGeometry = new THREE.SphereGeometry(100, 64, 32);
 
 // マテリアルを作成
-const material = new THREE.MeshPhysicalMaterial();
+const ballMaterial = new THREE.MeshPhysicalMaterial();
+
+// メッシュ化する
+const ballMesh = new THREE.Mesh(ballGeometry, ballMaterial);
+// メッシュをシーンに追加する
+scene.add(ballMesh);
 
 renderer.render(scene, camera);
