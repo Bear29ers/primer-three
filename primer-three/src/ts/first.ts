@@ -15,4 +15,7 @@ document.body.appendChild(renderer.domElement);
 // ジオメトリを作成
 const ballGeometry = new THREE.SphereGeometry(100, 64, 32);
 
+// マテリアルを作成
+const material = new THREE.MeshPhysicalMaterial();
+
 renderer.render(scene, camera);
