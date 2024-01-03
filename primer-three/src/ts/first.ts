@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/Addons.js';
 
 // シーンを追加
 const scene = new THREE.Scene();
@@ -41,6 +42,9 @@ scene.add(pointLight);
 const pointLightHelper = new THREE.PointLightHelper(pointLight, 30);
 scene.add(pointLightHelper);
 
+// マウス操作を設定
+const controls = new OrbitControls(camera, renderer.domElement);
+
 // ポイント光源を巡回
 const animate = () => {
   pointLight.position.set(
@@ -49,8 +53,11 @@ const animate = () => {
     200 * Math.sin(Date.now() / 500)
   );
 
+  requestAnimationFrame(animate);
+
+  controls.update();
+
   // レンダリング
   renderer.render(scene, camera);
-  requestAnimationFrame(animate);
 };
 animate();
