@@ -14,11 +14,14 @@ const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
+// テクスチャを追加
+const texture = new THREE.TextureLoader().load('/textures/earth.jpg');
+
 // ジオメトリを作成
 const ballGeometry = new THREE.SphereGeometry(100, 64, 32);
 
 // マテリアルを作成
-const ballMaterial = new THREE.MeshPhysicalMaterial();
+const ballMaterial = new THREE.MeshPhysicalMaterial({ map: texture });
 
 // メッシュ化
 const ballMesh = new THREE.Mesh(ballGeometry, ballMaterial);
