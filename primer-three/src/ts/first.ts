@@ -31,7 +31,26 @@ scene.add(directionalLight);
 // ポイント光源を追加
 const pointLight = new THREE.PointLight(0xffffff, 1);
 pointLight.position.set(-200, -200, -200);
+// 光の減衰率を設定
+pointLight.decay = 1;
+// 光源強度の設定
+pointLight.power = 1000;
 scene.add(pointLight);
 
-// レンダリング
-renderer.render(scene, camera);
+// ポイント光源の場所を視覚化
+const pointLightHelper = new THREE.PointLightHelper(pointLight, 30);
+scene.add(pointLightHelper);
+
+// ポイント光源を巡回
+const animate = () => {
+  pointLight.position.set(
+    200 * Math.sin(Date.now() / 500),
+    200 * Math.sin(Date.now() / 1000),
+    200 * Math.sin(Date.now() / 500)
+  );
+
+  // レンダリング
+  renderer.render(scene, camera);
+  requestAnimationFrame(animate);
+};
+animate();
