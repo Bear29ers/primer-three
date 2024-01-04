@@ -18,17 +18,22 @@ document.body.appendChild(renderer.domElement);
 const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
 // const boxGeometry = new THREE.BoxGeometry(1, 1, 1, 16, 16, 16);
 const sphereGeometry = new THREE.SphereGeometry(0.5, 32, 16);
+// const planeGeometry = new THREE.PlaneGeometry(1, 1, 16, 16);
+const planeGeometry = new THREE.PlaneGeometry(10, 10);
 
 // マテリアル
 const material = new THREE.MeshNormalMaterial({
-  wireframe: true,
+  // wireframe: true,
 });
 
 // メッシュ化
 const box = new THREE.Mesh(boxGeometry, material);
 const sphere = new THREE.Mesh(sphereGeometry, material);
 sphere.position.x = 1.5;
-scene.add(box, sphere);
+const plane = new THREE.Mesh(planeGeometry, material);
+plane.rotation.x = -Math.PI * 0.5;
+plane.position.y = -0.5;
+scene.add(box, sphere, plane);
 
 // ライト
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
