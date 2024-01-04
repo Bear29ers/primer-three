@@ -14,8 +14,18 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 document.body.appendChild(renderer.domElement);
 
+// ジオメトリを作成
+const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
+// const boxGeometry = new THREE.BoxGeometry(1, 1, 1, 16, 16, 16);
+
 // マテリアル
-const metrial = new THREE.MeshNormalMaterial();
+const material = new THREE.MeshNormalMaterial({
+  // wireframe: true,
+});
+
+// メッシュ化
+const box = new THREE.Mesh(boxGeometry, material);
+scene.add(box);
 
 // ライト
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
