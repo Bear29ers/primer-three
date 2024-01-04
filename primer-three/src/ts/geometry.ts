@@ -20,6 +20,7 @@ const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
 const sphereGeometry = new THREE.SphereGeometry(0.5, 32, 16);
 // const planeGeometry = new THREE.PlaneGeometry(1, 1, 16, 16);
 const planeGeometry = new THREE.PlaneGeometry(10, 10);
+const torusGeometry = new THREE.TorusGeometry(0.5, 0.2, 15, 100, Math.PI * 2);
 
 // マテリアル
 const material = new THREE.MeshNormalMaterial({
@@ -33,7 +34,9 @@ sphere.position.x = 1.5;
 const plane = new THREE.Mesh(planeGeometry, material);
 plane.rotation.x = -Math.PI * 0.5;
 plane.position.y = -0.5;
-scene.add(box, sphere, plane);
+const torus = new THREE.Mesh(torusGeometry, material);
+torus.position.x = -1.5;
+scene.add(box, sphere, plane, torus);
 
 // ライト
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);

@@ -38,6 +38,7 @@ Three.jsで物体をレンダリングすると、原点を軸に描画される
 - [直方体](#直方体)
 - [球体](#球体)
 - [平面](#平面)
+- [ドーナツ型](#ドーナツ型)
 
 ### ジオメトリとは
 
@@ -63,4 +64,10 @@ THREE.SphereGeometry(radius, widthSegments, heightSegments, phiStart, phiLength,
 
 ```js
 THREE.PlaneGeomentry(width, height, widthSegments, heightSegments);
+```
+
+### ドーナツ型
+
+```js
+THREE.TorusGeometry(radius, tube, radialSeguments, tubularSegments, arc);
 ```
