@@ -36,6 +36,7 @@ Three.jsで物体をレンダリングすると、原点を軸に描画される
 
 - [ジオメトリとは](#ジオメトリとは)
 - [直方体](#直方体)
+- [球体](#球体)
 
 ### ジオメトリとは
 
@@ -44,9 +45,15 @@ Three.jsで物体をレンダリングすると、原点を軸に描画される
 ### 直方体
 
 ```js
-THREE.BoxGeometry(width?, height?, depth?, widthSegments?, heightSegments?, depthSegments?);
+THREE.BoxGeometry(width, height, depth, widthSegments, heightSegments, depthSegments);
 ```
 
 後半のオブションはセグメントの数。細かくすることで良い精度の良い物体を描画できる。
 
 セグメント数が増えるほど計算量が増え、負荷がかかる。
+
+### 球体
+
+```js
+THREE.SphereGeometry(radius, widthSegments, heightSegments, phiStart, phiLength, thetaStart, thetaLength);
+```
