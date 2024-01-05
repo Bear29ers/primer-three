@@ -39,6 +39,7 @@ Three.jsで物体をレンダリングすると、原点を軸に描画される
 - [球体](#球体)
 - [平面](#平面)
 - [ドーナツ型](#ドーナツ型)
+- [バッファジオメトリ](#バッファジオメトリ)
 
 ### ジオメトリとは
 
@@ -70,4 +71,15 @@ THREE.PlaneGeomentry(width, height, widthSegments, heightSegments);
 
 ```js
 THREE.TorusGeometry(radius, tube, radialSeguments, tubularSegments, arc);
+```
+
+### バッファジオメトリ
+
+バッファジオメトリとは、頂点データを直接操作できる形状オブジェクト。
+
+Three.jsが用意しているジオメトリ関数はバッファジオメトリを継承して作成されている。そのため、`BufferGeometry`で物体を生成する場合は位置情報を指定する必要がある。
+
+```js
+const bufferGeometry = new THREE.BufferGeometry();
+bufferGeometry.setAttribute('position', new THREE.BufferAttribute(Float32Array, 3));
 ```
