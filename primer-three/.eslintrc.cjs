@@ -27,6 +27,7 @@ const config = {
   rules: {
     /* eslint */
     'no-unused-vars': 'off',
+    'no-plusplus': 'off',
     'arrow-body-style': 'off',
     'no-restricted-syntax': [
       'error',
