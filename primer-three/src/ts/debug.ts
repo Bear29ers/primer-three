@@ -1,5 +1,9 @@
+import GUI from 'lil-gui';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+
+// UIデバッグ
+const gui = new GUI();
 
 // シーン
 const scene = new THREE.Scene();
