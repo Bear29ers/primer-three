@@ -44,6 +44,9 @@ gui.add(box, 'visible');
 // ワイヤーフレームON・OFF
 gui.add(material, 'wireframe');
 
+// カラーを変更
+gui.addColor(material, 'color');
+
 // ライト
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
 scene.add(ambientLight);
