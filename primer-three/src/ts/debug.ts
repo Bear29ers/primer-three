@@ -31,18 +31,22 @@ const box = new THREE.Mesh(boxGeometry, material);
 scene.add(box);
 
 // デバッグ
+// フォルダ
+const positionFolder = gui.addFolder('position');
+const visibleFolder = gui.addFolder('visible');
+
 // -3~3の間を0.01ずつ移動できる
 // gui.add(box.position, 'x', -3, 3, 0.01);
-gui.add(box.position, 'x').min(-3).max(3).step(0.01).name('transformX');
-gui.add(box.position, 'y').min(-3).max(3).step(0.01).name('transformY');
-gui.add(box.position, 'z').min(-3).max(3).step(0.01).name('transformZ');
+positionFolder.add(box.position, 'x').min(-3).max(3).step(0.01).name('transformX');
+positionFolder.add(box.position, 'y').min(-3).max(3).step(0.01).name('transformY');
+positionFolder.add(box.position, 'z').min(-3).max(3).step(0.01).name('transformZ');
 
 gui.add(box.rotation, 'x').min(-3).max(3).step(0.01).name('rotationX');
 
 // 表示・非表示
-gui.add(box, 'visible');
+visibleFolder.add(box, 'visible');
 // ワイヤーフレームON・OFF
-gui.add(material, 'wireframe');
+visibleFolder.add(material, 'wireframe');
 
 // カラーを変更
 gui.addColor(material, 'color');
