@@ -39,6 +39,11 @@ gui.add(box.position, 'z').min(-3).max(3).step(0.01).name('transformZ');
 
 gui.add(box.rotation, 'x').min(-3).max(3).step(0.01).name('rotationX');
 
+// 表示・非表示
+gui.add(box, 'visible');
+// ワイヤーフレームON・OFF
+gui.add(material, 'wireframe');
+
 // ライト
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
 scene.add(ambientLight);
