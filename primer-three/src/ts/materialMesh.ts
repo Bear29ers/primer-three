@@ -4,6 +4,9 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 let scene: THREE.Scene;
 let camera: THREE.PerspectiveCamera;
 let renderer: THREE.WebGLRenderer;
+let sphere;
+let plane;
+let octahedron;
 
 const animate = () => {
   // レンダリング
@@ -31,6 +34,23 @@ const init = () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   document.body.appendChild(renderer.domElement);
+
+  // ジオメトリ
+  const sphereGeometry = new THREE.SphereGeometry(0.5, 16, 16);
+  const planeGeometry = new THREE.PlaneGeometry(1, 1);
+  const octahedronGeometry = new THREE.OctahedronGeometry(0.5);
+
+  // マテリアル
+  const material = new THREE.MeshBasicMaterial();
+
+  // メッシュ化
+  sphere = new THREE.Mesh(sphereGeometry, material);
+  plane = new THREE.Mesh(planeGeometry, material);
+  octahedron = new THREE.Mesh(octahedronGeometry, material);
+
+  sphere.position.x = -1.5;
+  octahedron.position.x = 1.5;
+  scene.add(sphere, plane, octahedron);
 
   // マウス操作
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
