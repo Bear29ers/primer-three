@@ -4,11 +4,25 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 let scene: THREE.Scene;
 let camera: THREE.PerspectiveCamera;
 let renderer: THREE.WebGLRenderer;
-let sphere;
-let plane;
-let octahedron;
+let sphere: THREE.Mesh;
+let plane: THREE.Mesh;
+let octahedron: THREE.Mesh;
+
+const clock = new THREE.Clock();
 
 const animate = () => {
+  // 経過時間を取得する
+  const elapsedTime = clock.getElapsedTime();
+
+  // オブジェクトを回転させる
+  sphere.rotation.x = elapsedTime;
+  plane.rotation.x = elapsedTime;
+  octahedron.rotation.x = elapsedTime;
+
+  sphere.rotation.y = elapsedTime;
+  plane.rotation.y = elapsedTime;
+  octahedron.rotation.y = elapsedTime;
+
   // レンダリング
   renderer.render(scene, camera);
   requestAnimationFrame(animate);
