@@ -54,17 +54,20 @@ const init = () => {
   const planeGeometry = new THREE.PlaneGeometry(1, 1);
   const octahedronGeometry = new THREE.OctahedronGeometry(0.5);
 
-  const texture = new THREE.TextureLoader().load('/textures/brick.jpg');
+  // const texture = new THREE.TextureLoader().load('/textures/brick.jpg');
 
   // マテリアル
-  const material = new THREE.MeshBasicMaterial({
-    map: texture,
-  });
-  material.color = new THREE.Color('red');
+  // const material = new THREE.MeshBasicMaterial({
+  //   map: texture,
+  // });
+  // material.color = new THREE.Color('red');
   // material.wireframe = true;
   // material.side = THREE.DoubleSide;
-  material.opacity = 0.5;
-  material.transparent = true;
+  // material.opacity = 0.5;
+  // material.transparent = true;
+  const material = new THREE.MeshNormalMaterial();
+  // 平坦を表現する
+  material.flatShading = true;
 
   // メッシュ化
   sphere = new THREE.Mesh(sphereGeometry, material);
