@@ -54,7 +54,7 @@ const init = () => {
   const planeGeometry = new THREE.PlaneGeometry(1, 1);
   const octahedronGeometry = new THREE.OctahedronGeometry(0.5);
 
-  const texture = new THREE.TextureLoader().load('/textures/brick.jpg');
+  // const texture = new THREE.TextureLoader().load('/textures/brick.jpg');
 
   // マテリアル
   // const material = new THREE.MeshBasicMaterial({
@@ -69,17 +69,21 @@ const init = () => {
   // 平坦を表現する
   // material.flatShading = true;
 
-  const material = new THREE.MeshStandardMaterial();
+  // const material = new THREE.MeshStandardMaterial();
   // material.color.set('#049ef4');
-  material.roughness = 0.34;
-  material.metalness = 0.64;
-  material.map = texture;
+  // material.roughness = 0.34;
+  // material.metalness = 0.64;
+  // material.map = texture;
+
+  const material = new THREE.MeshPhongMaterial();
+  material.shininess = 100;
+  material.specular = new THREE.Color('red');
 
   // ライトを追加する
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
   scene.add(ambientLight);
 
-  const pointLight = new THREE.PointLight(0xffffff, 1);
+  const pointLight = new THREE.PointLight(0xffffff, 0.7);
   pointLight.position.set(1, 2, 3);
   // 光の減衰率を設定
   pointLight.decay = 1;
