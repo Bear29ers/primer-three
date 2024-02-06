@@ -1,8 +1,9 @@
+import GUI from 'lil-gui';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 // UIデバッグ
-// const gui = new dat.GUI();
+const gui = new GUI();
 
 // サイズ
 const sizes = {
@@ -21,8 +22,12 @@ camera.position.z = 4;
 scene.add(camera);
 
 // ライト
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+// const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+const ambientLight = new THREE.AmbientLight();
+ambientLight.color = new THREE.Color(0xffffff);
+ambientLight.intensity = 1;
 scene.add(ambientLight);
+gui.add(ambientLight, 'intensity').min(0).max(1).step(0.001);
 
 // マテリアル
 const material = new THREE.MeshStandardMaterial();
